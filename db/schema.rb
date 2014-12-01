@@ -11,10 +11,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201142352) do
+ActiveRecord::Schema.define(version: 20141201152143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "number"
+    t.string   "street"
+    t.string   "city"
+    t.string   "country"
+    t.string   "zip_code"
+    t.integer  "flat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["flat_id"], name: "index_addresses_on_flat_id", using: :btree
+
+  create_table "bookings", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.boolean  "accepted"
+    t.integer  "flat_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookings", ["flat_id"], name: "index_bookings_on_flat_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
+
+  create_table "flats", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "price"
+    t.string   "currency"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "flats", ["owner_id"], name: "index_flats_on_owner_id", using: :btree
+
+  create_table "photos", force: true do |t|
+    t.string   "url"
+    t.integer  "flat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["flat_id"], name: "index_photos_on_flat_id", using: :btree
+
+  create_table "reviews", force: true do |t|
+    t.integer  "rating"
+    t.text     "comment"
+    t.integer  "flat_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["flat_id"], name: "index_reviews_on_flat_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -29,6 +90,12 @@ ActiveRecord::Schema.define(version: 20141201142352) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "gender"
+    t.date     "birthday"
+    t.string   "phone_number"
+    t.text     "description"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
