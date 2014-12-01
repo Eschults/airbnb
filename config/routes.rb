@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
-
   devise_for :users, controllers: { sessions: "users/sessions" }
 
   resources :flats, only: [:new, :create, :show, :edit, :update] do
