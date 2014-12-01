@@ -1,0 +1,15 @@
+<h1><%= @flat.title %></h1>
+<p><%= @flat.description %></p>
+<%= @flat.price %>
+<%= @flat.currency %>
+<% @flat.photos.each do |p| %>
+  <div class="col-xs-4">
+    <%= image_tag p.url :medium %>
+    <%= link_to "Delete", p.destroy %>
+  </div>
+<% end %>
+<h4>Add a picture:</h4>
+<%= bootstrap_form_for @flat do |f| %>
+  <%= f.file_field :photo %>
+  <%= f.submit "Add picture", class: "btn btn-primary" %>
+<% end %>

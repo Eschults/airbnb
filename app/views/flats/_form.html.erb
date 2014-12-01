@@ -1,0 +1,7 @@
+<%= bootstrap_form_for @flat do |f| %>
+  <%= f.text_field :title, autofocus: true %>
+  <%= f.text_area :description, autofocus: true %>
+  <%= f.text_field :price, autofocus: true %>
+  <%= f.select :currency, [["€", :EUR], ["$", :USD], ["£", :GBP]], autofocus: true %>
+  <%= f.submit "Save flat", class: "btn btn-primary"%>
+<% end %>
