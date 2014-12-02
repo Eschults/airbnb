@@ -28,7 +28,7 @@ class FlatsController < ApplicationController
 
   def update
     @photo = Photo.new
-    @photo.flat = @flat
+    @photo.flat_id = @flat.id
     @photo.url = @flat.picture.url
     @photo.save
     @flat.photos << @photo
