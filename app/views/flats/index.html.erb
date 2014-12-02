@@ -1,0 +1,7 @@
+<h1>List of flats</h1>
+<% @flats.each do |f| %>
+  <div class="col-xs-4">
+    <%= image_tag f.photos.first.url :medium %>
+    <%= link_to "View details", flat_path(f) %>
+  </div>
+<% end %>
