@@ -37,6 +37,10 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
   end
 
+  def add_picture_to_flat
+    @flat = Flat.find(params[:id])
+  end
+
   def flat_params
     params.require(:flat).permit(:title, :description, :price, :currency)
   end

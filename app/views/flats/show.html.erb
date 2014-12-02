@@ -9,7 +9,7 @@
   </div>
 <% end %>
 <h4>Add a picture:</h4>
-<%= bootstrap_form_for @photo, html: { multipart: :true } do |f| %>
-  <%= f.file_field :photo %>
+<%= bootstrap_form_for @flat.photos, html: { multipart: :true } do |f| %>
+  <%= f.file_field :picture %>
   <%= f.submit "Add picture", class: "btn btn-primary" %>
 <% end %>
