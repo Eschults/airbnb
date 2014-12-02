@@ -4,6 +4,8 @@ $vertical-padding: 40px;
 $radius: 50%;
 $space-icon: 50px;
 
+
+
 #footer {
 
   background-color: $bg;
@@ -19,6 +21,8 @@ $space-icon: 50px;
   border-top-left-radius: $radius;
   border-bottom-left-radius: $radius;
   border-bottom-right-radius: $radius;
+  width: 25px;
+
 }
 
 #footer > li > a {
