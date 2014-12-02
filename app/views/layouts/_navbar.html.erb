@@ -20,7 +20,9 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="http://placehold.it/30x30" id="profile-pic" alt=""><%= current_user.first_name %><span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <%= image_tag current_user.picture || "http://placehold.it/30x30", id: "profile-pic"%>
+              <%= current_user.first_name %><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><%= link_to "Edit profile", edit_user_path(current_user) %></li>
               <li><%= link_to "My flats", flat_path(current_user) %></li>
@@ -30,8 +32,9 @@
         <% else %>
          <li><%= link_to 'Sign up', new_user_registration_path %></li>
          <li><%= link_to 'Sign in', new_user_session_path %></li>
+         <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
         <% end %>
-        <li><a href="#" class="btn btn-primary" id="nav-btn">Publish an announce</a></li>
+        <li><%= link_to 'Publish your listing', new_flat_path, class: "btn btn-primary", id: "nav-btn" %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
