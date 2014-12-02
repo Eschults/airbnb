@@ -61,6 +61,10 @@ ActiveRecord::Schema.define(version: 20141202133335) do
     t.integer  "flat_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "photos", ["flat_id"], name: "index_photos_on_flat_id", using: :btree
