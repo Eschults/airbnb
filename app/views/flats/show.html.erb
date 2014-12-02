@@ -2,12 +2,5 @@
 <p><%= @flat.description %></p>
 <%= @flat.price %>
 <%= @flat.currency %>
-
-<% if @flat.photos.first %>
-  <% @flat.photos.each do |p| %>
-    <div class="col-xs-4">
-      <%= image_tag p.url %>
-      <%= link_to "Delete", p.destroy %>
-    </div>
-  <% end %>
-<% end %>
+<br>
+<%= link_to "Edit flat", edit_flat_path(@flat) %>

@@ -3,8 +3,8 @@
   <%= f.text_area :description, autofocus: true %>
   <%= f.text_field :price, autofocus: true %>
   <%= f.select :currency, [["€", :EUR], ["$", :USD], ["£", :GBP]], autofocus: true %>
-  <%= f.fields_for(:photos, html: { multipart: true }) do |photo| %>
-    <%= render "photo_fields", :f => photo %>
+  <%= f.fields_for :photos do |photo| %>
+    <%= render "photos_fields", :f => photo %>
     <%= link_to_add_association "add photo", f, :photos %>
   <% end %>
   <%= f.submit "Save flat", class: "btn btn-primary"%>

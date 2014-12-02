@@ -31,6 +31,7 @@ class FlatsController < ApplicationController
     @photo.flat_id = @flat.id
     @photo.url = @flat.picture.url
     @photo.save
+    @flat.update(flat_params)
     @flat.photos << @photo
     if @flat.save
       redirect_to flat_path(@flat)
