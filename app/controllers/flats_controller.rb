@@ -48,8 +48,4 @@ class FlatsController < ApplicationController
   def flat_params
     params.require(:flat).permit(:title, :description, :price, :currency, photos_attributes: [:id, :picture, :url, :_destroy])
   end
-
-  def photo_params
-    params.require(:photo).permit(:flat, :url, :picture)
-  end
 end
