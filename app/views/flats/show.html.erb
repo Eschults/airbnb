@@ -4,12 +4,12 @@
 <%= @flat.currency %>
 <% @flat.photos.each do |p| %>
   <div class="col-xs-4">
-    <%= image_tag p.picture.url :medium %>
+    <%= image_tag p.url :medium %>
     <%= link_to "Delete", p.destroy %>
   </div>
 <% end %>
-<h4>Add a picture:</h4>
-<%= bootstrap_form_for @flat.photos, html: { multipart: :true } do |f| %>
-  <%= f.file_field :picture %>
+
+<%= bootstrap_form_for(@flat, html: { multipart: true }) do |f| %>
+  <%= f.file_field :picture, label: "Add a picture:" %>
   <%= f.submit "Add picture", class: "btn btn-primary" %>
 <% end %>
