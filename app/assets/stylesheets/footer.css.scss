@@ -1,31 +1,27 @@
 $bg: rgb(10, 10, 10);
 $border: 2px solid white;
 $vertical-padding: 40px;
-$radius: 50%;
-$space-icon: 50px;
-
 
 
 #footer {
-
   background-color: $bg;
   padding-top: $vertical-padding;
   padding-bottom: $vertical-padding;
   margin-top: $vertical-padding;
+  font-size: 15px;
 }
 
 
 #footer li {
   border: $border;
-  border-top-right-radius: $radius;
-  border-top-left-radius: $radius;
-  border-bottom-left-radius: $radius;
-  border-bottom-right-radius: $radius;
+  border-radius: 50%;
   width: 25px;
-
+  padding: 3px;
+  height: 30px;
+  margin: 0 2px;
 }
 
-#footer > li > a {
-  padding: $space-icon;
+.copy {
+  color: white;
 }
 
