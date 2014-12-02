@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   has_many :bookings
   has_many :reviews
 
-  validates_presence_of :last_name, :first_name, :email, :password
+  validates_presence_of :last_name, :first_name, :email
 end
