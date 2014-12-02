@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :current_user
+  before_action :set_user
 
   def show
   end
@@ -15,11 +15,13 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params[:user].permit(:first_name, :last_name, :address, :phone_number, :gender, :description)
+
+    p params.require(:user).permit(:first_name, :last_name, :address, :phone_number, :gender, :description, :birthday)
   end
 
-  def current_user
+  def set_user
     @user = current_user
   end
+
 
 end
