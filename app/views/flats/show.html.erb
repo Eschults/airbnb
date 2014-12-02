@@ -11,8 +11,3 @@
     </div>
   <% end %>
 <% end %>
-
-<%= form_for(@flat, html: { multipart: true }) do |f| %>
-  <%= f.file_field :picture %>
-  <%= f.submit "Add picture", class: "btn btn-primary" %>
-<% end %>
