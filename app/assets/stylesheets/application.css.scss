@@ -7,7 +7,6 @@
 
 body {
   margin-top: 60px;
-  background-image: image-url('home.jpeg')
 }
 
 .signup {
@@ -25,3 +24,14 @@ body {
   heigt: 100px;
 }
 
+.home {
+  color: white;
+}
+
+
+.wrapper {
+  background-image: image-url('home.jpeg');
+  background-size: cover;
+  height: 650px;
+  padding-top: 150px;
+}

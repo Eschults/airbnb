@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   resources :flats, only: [:new, :create, :show, :edit, :update] do
@@ -14,5 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "flats#index"
+  root to: "pages#home"
+  get '/about', to: "pages#about"
 end
