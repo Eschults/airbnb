@@ -1,9 +1,31 @@
-<h1><%= @flat.title %></h1>
-<p><%= @flat.description %></p>
-<% @flat.photos.each do |photo| %>
-  <%= image_tag photo.picture.url(:medium) %>
-<% end %>
-<%= @flat.price %>
-<%= @flat.currency %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 white-bg bord-rad-2 padding-btm-15 margin-top-10">
+      <h1><%= @flat.title %></h1>
+      <div class="container">
+        <div class="row">
+        <% @flat.photos.each do |photo| %>
+          <div class="col-xs-4">
+            <div class="img-thumbnail flat-picture">
+              <%= image_tag photo.picture.url(:medium) %>
+            </div>
+          </div>
+        <% end %>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-xs-12">
+            <p><strong>Description: </strong><%= @flat.description %></p>
+            <p><strong>Prix: </strong><%= @flat.price %><%= @flat.currency %> la nuitée pour 2 personnes.</p>
+            <% if current_user == @flat.owner %>
+            <p><%= link_to "Edit flat", edit_flat_path(@flat) %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
-<%= link_to "Edit flat", edit_flat_path(@flat) %>
+<br>

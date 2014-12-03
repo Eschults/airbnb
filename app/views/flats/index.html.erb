@@ -1,8 +1,19 @@
-<h1>List of flats</h1>
-<% @flats.each do |f| %>
-  <div class="col-xs-4">
-
-    <%= f.title %>
-    <%= link_to "View details", flat_path(f) %>
+<div class="container">
+  <div class="row">
+    <h1>List of flats</h1>
+    <% @flats.each do |f| %>
+      <div class="col-xs-4">
+        <h3><%= link_to f.title, flat_path(f) %></h3>
+        <div class="picture-plaholder">
+          <% if f.photos.first %>
+            <%= image_tag f.photos.first.picture.url(:medium), class: "img-thumbnail"%>
+          <% else %>
+            <%= image_tag "images.jpg", class: "img-thumbnail flat-picture" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+<br>
+<br>

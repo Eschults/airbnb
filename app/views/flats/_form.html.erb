@@ -1,34 +1,41 @@
 <%= simple_form_for(@flat, html:{ multipart: true }) do |f| %>
-  <div class="col-xs-12">
-    <%= f.input :title, placeholder: 'Trouvez une accroche séduisante !' %>
+<div class="col-xs-12">
+  <%= f.input :title, placeholder: 'Trouvez une accroche séduisante !' %>
+</div>
+
+<div class="col-xs-12">
+  <%= f.input :description %>
+</div>
+
+<div class="col-xs-6">
+  <%= f.input :price, label: "Price" %>
+</div>
+
+<div class="col-xs-6">
+<%= f.input :currency, collection: [["€", "EUR"], ["$", "USD"], ["£", "GBP"]] %>
+</div>
+
+<div class="col-xs-12" id="addresses">
+
+  <%= f.simple_fields_for @flat.build_address do |address_form| %>
+    <%= render 'address_fields', :f => address_form %>
+  <% end %>
+
+</div>
+
+<div class="col-xs-12" id="photos">
+  <h3>Ajoutez des photos</h3>
+  <p>Rendez votre annonce attrayante avec quelques photos de votre appartement !</p>
+  <%= f.simple_fields_for :photos do |photo| %>
+    <%= render 'photo_fields', :f => photo %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association 'Add picture', f, :photos, class: "btn btn-default" %>
   </div>
-  <div class="col-xs-12">
-    <%= f.input :description %>
-  </div>
-  <div class="col-xs-6">
-    <%= f.input :price, label: "Price" %>
-  </div>
-  <div class="col-xs-6">
-  <%= f.input :currency, collection: [["€", "EUR"], ["$", "USD"], ["£", "GBP"]] %>
-  </div>
-  <div class="col-xs-12">
-    <%= f.simple_fields_for :addresses do |address| %>
-      <%= render 'address_fields', :f => address %>
-    <% end %>
-    <%= link_to_add_association 'Save address', f, :address, class:"btn btn-default" %>
-  </div>
-  <div class="col-xs-12">
-    <h4>Ajoutez des photos</h4>
-    <p>Rendez votre annonce attrayante avec quelques photos de votre appartement !</p>
-    <%= f.simple_fields_for :photos do |photo| %>
-      <%= render 'photo_fields', :f => photo %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add picture', f, :photos, class: "btn btn-default" %>
-    </div>
-  </div>
-  <div class="col-xs-12">
-    <br>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
+</div>
+
+<div class="col-xs-12">
+  <br>
+  <%= f.button :submit, class: "btn btn-primary" %>
+</div>
 <% end %>
