@@ -6,6 +6,7 @@ $vertical-padding: 10px;
 $horizontal-padding: 50px;
 $border-bottom-width: 0;
 $border-bottom-color: grey;
+$box-shadow: 0 0 5px rgba(0, 0, 0, .4);
 
 // Set your navbar button
 $btn-height: 40px;
@@ -37,6 +38,7 @@ $profile-border-width: 2px;
   padding-right: $horizontal-padding;
   border-bottom: $border-bottom-width solid $border-bottom-color;
   min-height: 0;
+  box-shadow: $box-shadow;
 }
 
 .navbar-wagon .navbar-nav > li > a {
