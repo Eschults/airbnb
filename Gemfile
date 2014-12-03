@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 
-
-
+gem "letter_opener", group: :development
 ruby '2.1.2'
 group :development do
   gem "better_errors"
