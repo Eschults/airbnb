@@ -8,37 +8,11 @@
 </head>
 <body>
 
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '609636629165462',
-        xfbml      : true,
-        version    : 'v2.2'
-      });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
-
-
   <%= render "layouts/navbar" %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
+  <%= render "layouts/notices" %>
 
-        <%= yield %>
+  <%= yield %>
 
-      </div>
-    </div>
-  </div>
   <%= render "layouts/footer" %>
 
 </body>
