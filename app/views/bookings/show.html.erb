@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-xs-12 white-bg padding-btm-15 margin-top-10">
       <h1>Ma réservation de <%= @booking.flat.title %></h1>
-      <p><%= @booking.flat.title %></p>
       <% @booking.flat.photos.each do |photo| %>
         <div class="col-xs-4">
           <div class="img-thumbnail flat-picture">
@@ -19,7 +18,6 @@
       </p>
       <p><strong>Period: </strong><%= (@booking.end_date - @booking.start_date).to_i %> nights</p>
       <p><strong>Total price: </strong><%= (@booking.end_date - @booking.start_date).to_i * @booking.flat.price %> <%= @booking.flat.currency %></p>
-
     </div>
   </div>
 </div>
