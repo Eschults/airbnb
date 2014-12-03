@@ -14,6 +14,7 @@ class FlatsController < ApplicationController
   end
 
   def create
+    raise
     @flat = Flat.new(flat_params)
     @flat.owner = current_user
     if @flat.save
@@ -27,12 +28,7 @@ class FlatsController < ApplicationController
   end
 
   def update
-    @photo = Photo.new
-    @photo.flat_id = @flat.id
-    @photo.url = @flat.picture.url
-    @photo.save
-    @flat.update(flat_params)
-    @flat.photos << @photo
+    @photo = Photo.new(flat_params)
     if @flat.save
       redirect_to flat_path(@flat)
     else
@@ -47,6 +43,6 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :price, :currency, photos_attributes: [:id, :picture, :url, :_destroy])
+    params.require(:flat).permit(:title, :description, :price, :currency, photos_attributes: [:picture, :_destroy])
   end
 end
