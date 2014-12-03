@@ -4,7 +4,8 @@ class Flat < ActiveRecord::Base
   has_many :bookings
   has_many :photos
   has_many :reviews
-  accepts_nested_attributes_for :photos, :reject_if => :all_blank, :allow_destroy => true
+  has_one :address
 
+  accepts_nested_attributes_for :photos, :allow_destroy => true
   validates_presence_of :title, :price, :owner
 end

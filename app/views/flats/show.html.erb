@@ -1,5 +1,8 @@
 <h1><%= @flat.title %></h1>
 <p><%= @flat.description %></p>
+<% @flat.photos.each do |photo| %>
+  <%= image_tag photo.picture.url(:medium) %>
+<% end %>
 <%= @flat.price %>
 <%= @flat.currency %>
 <br>
