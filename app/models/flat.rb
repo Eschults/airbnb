@@ -7,5 +7,6 @@ class Flat < ActiveRecord::Base
   has_one :address
 
   accepts_nested_attributes_for :photos, :allow_destroy => true
+  accepts_nested_attributes_for :address, :allow_destroy => true
   validates_presence_of :title, :price, :owner
 end
