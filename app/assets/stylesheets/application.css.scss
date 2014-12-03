@@ -6,5 +6,22 @@
 @import "footer";
 
 body {
-  margin-top: 150px;
+  margin-top: 60px;
+  background-image: image-url('home.jpeg')
 }
+
+.signup {
+  background-color: rgba(220, 220, 220, 0.4);
+  border-radius: 3%;
+}
+
+.signin {
+  background-color: rgba(220, 220, 220, 0.4);
+  padding: 5px;
+  border-radius: 3%;
+}
+
+.spacer100 {
+  heigt: 100px;
+}
+
