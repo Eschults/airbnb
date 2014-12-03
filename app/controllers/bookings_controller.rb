@@ -11,8 +11,9 @@ before_action :set_booking, only: [:show, :answer]
   def create
     @booking = Booking.new(booking_params)
     @booking.flat = set_flat
+    @booking.user = current_user
     if @booking.save
-      redirect_to flat_path(set_flat)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
