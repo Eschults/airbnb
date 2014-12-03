@@ -1,13 +1,12 @@
 <%= simple_form_for([@flat, @booking], html:{ multipart: true }) do |f| %>
   <div class="col-xs-12">
-    <%= f.input :start_date, placeholder: 'Trouvez une accroche séduisante !' %>
+    <%= f.input :start_date, as: :date, html5: true %>
   </div>
   <div class="col-xs-12">
-    <%= f.input :end_date %>
+    <%= f.input :end_date, as: :date, html5: true %>
   </div>
 
   <div class="col-xs-12">
-    <br>
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>

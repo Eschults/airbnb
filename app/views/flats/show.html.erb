@@ -2,8 +2,12 @@
   <div class="row">
     <div class="col-xs-12 white-bg bord-rad-2 padding-btm-15 margin-top-10">
       <h1><%= @flat.title %></h1>
+
       <div class="container">
         <div class="row">
+        <div class="col-xs-12"><%= link_to "Réservez maintenant", new_flat_booking_path(@flat), class: "btn btn-primary" %></div>
+        <br>
+        <br>
         <% @flat.photos.each do |photo| %>
           <div class="col-xs-4">
             <div class="img-thumbnail flat-picture">
