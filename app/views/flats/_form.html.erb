@@ -1,12 +1,11 @@
-
 <%= bootstrap_form_for @flat do |f| %>
-  <%= f.text_field :title, autofocus: true %>
-  <%= f.text_area :description, autofocus: true %>
-  <%= f.text_field :price, autofocus: true %>
+  <%= f.text_field :title, label: "Title of your listing" %>
+  <%= f.text_area :description, label: "Description" %>
+  <%= f.text_field :price, label: "Price" %>
   <%= f.select :currency, [["€", :EUR], ["$", :USD], ["£", :GBP]], autofocus: true %>
   <%= f.fields_for :photos do |photo| %>
-    <%= render partial: "photo_fields", locals: {:f => photo} %>
-    <%= link_to_add_association "add photo", f, :photos %>
+    <%= render "photo_fields", :f => photo %>
   <% end %>
+  <%= link_to_add_association "Add picture", f, :photos, class: "btn btn-default" %>
   <%= f.submit "Save flat", class: "btn btn-primary"%>
 <% end %>

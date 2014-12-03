@@ -14,7 +14,6 @@ class FlatsController < ApplicationController
   end
 
   def create
-    raise
     @flat = Flat.new(flat_params)
     @flat.owner = current_user
     if @flat.save
@@ -28,8 +27,7 @@ class FlatsController < ApplicationController
   end
 
   def update
-    @photo = Photo.new(flat_params)
-    if @flat.save
+    if @flat.update(flat_params)
       redirect_to flat_path(@flat)
     else
       raise
