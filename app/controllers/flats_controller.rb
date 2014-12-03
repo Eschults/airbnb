@@ -30,7 +30,7 @@ class FlatsController < ApplicationController
     if @flat.update(flat_params)
       redirect_to flat_path(@flat)
     else
-      raise
+      render :edit
     end
   end
 
@@ -41,6 +41,6 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :price, :currency, photos_attributes: [:picture, :_destroy])
+    params.require(:flat).permit(:title, :description, :price, :currency, photos_attributes: [:picture, :_destroy], addresses_attributes: [:number, :street, :city, :zip_code, :_destroy])
   end
 end
