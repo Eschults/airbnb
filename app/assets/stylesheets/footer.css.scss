@@ -28,6 +28,11 @@ $vertical-padding: 40px;
   font-size: 28px;
 }
 
+#footer li a:hover {
+  color: #48AEE3;
+  transition: color 1s ease;
+}
+
 .copy {
   color: white;
 }
