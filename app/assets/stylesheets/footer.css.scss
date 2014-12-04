@@ -12,18 +12,19 @@ $vertical-padding: 40px;
   width: 100%;
 }
 
-
 #footer li {
-  border: $border;
-  border-radius: 50%;
-  width: 25px;
   padding: 3px;
+  margin: 0 6px;
+  width: 25px;
+  border-radius: 50%;
   height: 50px;
   width: 50px;
-  margin: 0 6px;
+  border: $border;
 }
 
+
 #footer li a {
+
   color: white;
   font-size: 28px;
 }

@@ -4,7 +4,7 @@
     <% @flats.each do |f| %>
       <div class="col-xs-4">
         <h3><%= link_to f.title, flat_path(f) %></h3>
-        <div class="picture-plaholder">
+        <div class="picture-placeholder">
           <% if f.photos.first %>
             <%= image_tag f.photos.first.picture.url(:medium), class: "img-thumbnail"%>
           <% else %>
