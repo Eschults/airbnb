@@ -15,12 +15,13 @@
 <%= f.input :currency, collection: [["€", "EUR"], ["$", "USD"], ["£", "GBP"]] %>
 </div>
 
-<div class="col-xs-12" id="addresses">
-
-  <%= f.simple_fields_for @flat.build_address do |address_form| %>
+<div class="col-xs-12">
+  <%= f.simple_fields_for :address do |address_form| %>
     <%= render 'address_fields', :f => address_form %>
   <% end %>
-
+  <div class="btn-hide-on-click">
+    <%= link_to_add_association 'Add address', f, :address, class: "btn btn-default" %>
+  </div>
 </div>
 
 <div class="col-xs-12" id="photos">
@@ -38,4 +39,14 @@
   <br>
   <%= f.button :submit, class: "btn btn-primary" %>
 </div>
+<% end %>
+
+<% content_for(:js) do %>
+  <script>
+    $(document).ready(function() {
+    $('.btn-hide-on-click').on('click', function(event) {
+       $(this).addClass('hidden');
+      });
+    });
+  </script>
 <% end %>
