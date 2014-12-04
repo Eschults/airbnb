@@ -1,19 +1,17 @@
 class BookingsController < ApplicationController
-before_action :set_booking, only: [:show, :answer]
-
+before_action :set_booking, only: [:show, :edit, :update]
 
   def new
     set_flat
     @booking = Booking.new
   end
 
-
   def create
     @booking = Booking.new(booking_params)
     @booking.flat = set_flat
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to flat_booking_path(@booking.flat, @booking)
     else
       render :new
     end
@@ -22,9 +20,18 @@ before_action :set_booking, only: [:show, :answer]
   def show
   end
 
-  def answer
+  def edit
+    set_flat
   end
 
+  def update
+    @booking.accepted  = booking_params[:accepted]
+    if @booking.save
+      redirect_to flat_booking_path(@booking.flat, @booking)
+    else
+      render :edit
+    end
+  end
 
   private
 
@@ -33,7 +40,7 @@ before_action :set_booking, only: [:show, :answer]
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :flat_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :flat_id, :user_id, :accepted)
   end
 
   def set_flat
