@@ -13,7 +13,7 @@
         <% if @booking.accepted %>
           Accepted!
         <% else %>
-          Pending...
+          Refused :(
         <% end %>
       </p>
       <p><strong>Period: </strong><%= (@booking.end_date - @booking.start_date).to_i %> nights</p>
