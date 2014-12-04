@@ -15,8 +15,3 @@
 //= require cocoon
 //= require bootstrap-sprockets
 //= require_tree .
-$(document).ready(function() {
- $('.btn-hide-on-click').on('click', function(event) {
-   $(this).addClass('hidden');
- });
-});
