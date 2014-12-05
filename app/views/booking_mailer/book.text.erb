@@ -1,3 +1,3 @@
-BookingMailer#book
+Congratulations! Someone wants to rent your flat!
 
-<%= @ %>, find me in app/views/booking_mailer/book.text.erb
+<%= @booking.flat.owner.first_name %>, you have a new booking from <%= @booking.user.first_name %>. You can view details <%= link_to "here", edit_flat_booking_url(@booking.flat.id, @booking.id) %>.

@@ -11,6 +11,7 @@ before_action :set_flat
     @review.user = current_user
     if @review.save
       redirect_to flats_path
+      flash[:alert] = "Review successfully sent to owner"
     else
       render :new
     end
