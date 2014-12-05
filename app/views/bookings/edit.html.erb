@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 white-bg padding-btm-15 margin-top-20 padding-sides-30">
-      <h1>Vous avez une demande de réservation sur : <%= @booking.flat.title %></h1>
+      <h1>Vous avez une demande de réservation sur <%= @booking.flat.title %></h1>
 
       <h3>Votre guest est <%= link_to @booking.user.first_name, user_path(@booking.user) %></h3>
 
