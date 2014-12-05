@@ -1,5 +1,8 @@
 <h1>Welcome Young Skywalker !</h1>
 
-<p>
-  Heu <%= @user.name %>. We are delighted to welcome you on board ! Travel and live free ! If you need money, talk to Edward !
-</p>
+
+<p>Hey <%= link_to @user.name, user_path(@user) %></p>
+
+<p>We are delighted to welcome you on board ! Travel and live free ! If you need money, talk to Edward !</p>
+
+<p>You can edit your profile information <%= link_to "here", user_path(@user) %>.</p>

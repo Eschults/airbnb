@@ -1,5 +1,5 @@
-<h1>BookingMailer#book</h1>
+<h1>Congratulations! Someone wants to rent your flat!</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/booking_mailer/book.html.erb
+  <%= @booking.user.first_name %>, you have a new booking from @booking.user.first_name. You can view details <%= link_to "here", booking_path(@booking) %>.
 </p>
