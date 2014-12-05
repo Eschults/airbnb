@@ -8,10 +8,10 @@ before_action :set_booking, only: [:show, :edit, :update]
 
   def create
     set_flat
-    start_date = params[:booking][:start_date]
-    end_date = params[:booking][:end_date]
-    if @flat.available?
-      @booking = Booking.new(booking_params)
+    start_date = params[:booking][:start_date].to_date
+    end_date = params[:booking][:end_date].to_date
+    @booking = Booking.new(booking_params)
+    if @flat.available?(start_date, end_date)
       @booking.flat = @flat
       @booking.user = current_user
       if @booking.save
@@ -20,7 +20,7 @@ before_action :set_booking, only: [:show, :edit, :update]
         render :new
       end
     else
-      alert = "This flat is not available on the requested period"
+      flash[:alert] = "This flat is not available on the requested period"
       render :new
     end
   end

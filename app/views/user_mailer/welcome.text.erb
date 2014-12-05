@@ -1,6 +1,8 @@
 Welcome Young Skywalker !
 
 
-Hey <%= @user.name %>
+Hey <%= link_to @user.name, user_path(@user) %>
 
 We are delighted to welcome you on board ! Travel and live free ! If you need money, talk to Edward !
+
+You can edit your profile information <%= link_to "here", user_path(@user) %>.

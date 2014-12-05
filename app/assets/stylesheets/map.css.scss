@@ -9,8 +9,10 @@ html, body {
   position: absolute;
   top: 50px;
   right: 40%;
+  width: 40%;
   bottom: 0;
   left: 0;
+  z-index: 1;
 }
 
 .sidebar {

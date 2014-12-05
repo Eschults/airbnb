@@ -10,11 +10,11 @@ class Flat < ActiveRecord::Base
   accepts_nested_attributes_for :address, :allow_destroy => true
   validates_presence_of :title, :price, :owner, :address
 
-  def available?
+  def available?(first_day, last_day)
     output = true
     if self.bookings
       self.bookings.each do |booking|
-        if (start_date >= booking.start_date && start_date <= booking.end_date) || (end_date >= booking.start_date && end_date <= booking.end_date)
+        if (booking.start_date..booking.end_date).include? first_day || (booking.start_date..booking.end_date).include? last_day
           output = false
           break
         end

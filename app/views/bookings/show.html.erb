@@ -18,7 +18,7 @@
           Declined :(
         <% end %>
       </p>
-      <p><strong>Period: </strong><%= (@booking.end_date - @booking.start_date).to_i %> nights</p>
+      <p><strong>Period: </strong><%= (@booking.end_date - @booking.start_date).to_i %> nights, from <%= @booking.start_date %> to <%= @booking.end_date %>.</p>
       <p><strong>Total price: </strong><%= (@booking.end_date - @booking.start_date).to_i * @booking.flat.price %> <%= @booking.flat.currency %></p>
     </div>
   </div>
