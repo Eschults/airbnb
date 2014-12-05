@@ -9,7 +9,10 @@
 <body>
 
   <%= render "layouts/navbar" %>
-  <%= render "layouts/notices" %>
+
+  <div class="notices">
+    <%= render "layouts/notices" %>
+  </div>
 
   <div class="grey-bg">
     <%= yield %>

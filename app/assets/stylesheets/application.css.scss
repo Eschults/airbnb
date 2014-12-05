@@ -11,18 +11,6 @@ body {
   margin-top: 50px;
 }
 
-.signup {
-  background-color: rgba(220, 220, 220, 0.4);
-  border-radius: 3%;
-  margin-top: 10px;
-}
-
-.signin {
-  background-color: rgba(220, 220, 220, 0.4);
-  padding: 15px;
-  border-radius: 3px;
-  margin-top: 10px;
-}
 
 .spacer100 {
   heigt: 100px;
@@ -50,6 +38,10 @@ body {
 
 .flat-picture {
   max-height: 210px;
+}
+
+.box-shadow {
+  box-shadow: 0 0 5px rgba(0, 0, 0, .4);
 }
 
 .home {
@@ -92,7 +84,7 @@ body {
 }
 
 .padding-left-15 {
-  padding-left: 15;
+  padding-left: 15px;
 }
 .margin-left-0 {
   margin-right: 0;
@@ -109,4 +101,13 @@ body {
 
 .total-width {
   width: 100%;
+}
+
+.notices {
+  position: absolute;
+  left: 50%;
+  width: 300px;
+  margin-top: 15px;
+  margin-left: -150px;
+  z-index: 2;
 }
