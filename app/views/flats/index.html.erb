@@ -1,19 +1,38 @@
-<div class="container">
+<div class="container margin-right-0 padding-right-0">
   <div class="row">
-    <h1>List of flats</h1>
-    <% @flats.each do |f| %>
-      <div class="col-xs-4">
-        <h3><%= link_to f.title, flat_path(f) %></h3>
-        <div class="picture-placeholder">
-          <% if f.photos.first %>
-            <%= image_tag f.photos.first.picture.url(:medium), class: "img-thumbnail"%>
-          <% else %>
-            <%= image_tag "images.jpg", class: "img-thumbnail flat-picture" %>
-          <% end %>
+    <div class="col-xs-7">
+      <h1>List of flats</h1>
+      <% @flats.each do |f| %>
+        <div class="col-sm-12 col-md-6 index-flats">
+          <h3><%= link_to f.title, flat_path(f) %></h3>
+          <div class="picture-placeholder">
+            <% if f.photos.first %>
+              <%= image_tag f.photos.first.picture.url(:medium), class: "img-thumbnail"%>
+            <% else %>
+              <%= image_tag "images.png", class: "img-thumbnail flat-picture" %>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="col-xs-5 margin-right-0">
+      <div id="map" style="width: 100%; height: 600px;"></div>
+
+      <% content_for(:js) do %>
+        <%= javascript_tag do %>
+          $(document).on('ready', function() {
+            handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function(){
+              markers = handler.addMarkers(<%= raw @markers.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+          })
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
+
 <br>
 <br>
