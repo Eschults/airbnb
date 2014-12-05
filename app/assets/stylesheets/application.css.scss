@@ -5,6 +5,8 @@
 @import "navbar";
 @import "footer";
 
+$bg-color: rgba(240, 240, 240, 1);
+
 body {
   margin-top: 50px;
 }
@@ -71,6 +73,7 @@ body {
 .padding-sides-30 {
   padding-left: 30px;
   padding-right: 30px;
+}
 
 .features {
   background-image: url('grid.jpg');
@@ -86,3 +89,21 @@ body {
 
 .padding-right-0 {
   padding-right: 0;
+}
+
+.margin-left-0 {
+  margin-right: 0;
+}
+
+.padding-left-0 {
+  padding-right: 0;
+}
+
+.margin-sides-0 {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.total-width {
+  width: 100%;
+}

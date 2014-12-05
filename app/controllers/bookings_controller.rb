@@ -7,18 +7,10 @@ before_action :set_booking, only: [:show, :edit, :update]
   end
 
   def create
-    # set_flat
-    # @start_date = params[:booking][:start_date]
-    # @end_date = params[:booking][:end_date]
-    # if @flat.bookings.first
-    #   @flat.bookings.each do |booking|
-    #     if (@start_date >= booking.start_date && @start_date <= booking.end_date) || (@end_date >= booking.start_date && @end_date <= booking.end_date)
-    #       alert = "This flat is not available on the requested period"
-    #       break
-    #     else
-    #     end
-    #   end
-    # else
+    set_flat
+    @start_date = params[:booking][:start_date]
+    @end_date = params[:booking][:end_date]
+    if @flat.available?
       @booking = Booking.new(booking_params)
       @booking.flat = @flat
       @booking.user = current_user
@@ -27,7 +19,10 @@ before_action :set_booking, only: [:show, :edit, :update]
       else
         render :new
       end
-    # end
+    else
+      alert = "This flat is not available on the requested period"
+      render :new
+    end
   end
 
   def show
