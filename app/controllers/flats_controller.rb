@@ -1,12 +1,15 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_flat, only: [:show, :edit, :update]
+  layout 'map', only: [:index]
 
   def index
     @flats = Flat.all
     @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
-      marker.lat flat.address.latitude
-      marker.lng flat.address.longitude
+      if flat.address
+        marker.lat flat.address.latitude
+        marker.lng flat.address.longitude
+      end
     end
   end
 
