@@ -8,8 +8,8 @@ before_action :set_booking, only: [:show, :edit, :update]
 
   def create
     set_flat
-    @start_date = params[:booking][:start_date]
-    @end_date = params[:booking][:end_date]
+    start_date = params[:booking][:start_date]
+    end_date = params[:booking][:end_date]
     if @flat.available?
       @booking = Booking.new(booking_params)
       @booking.flat = @flat
