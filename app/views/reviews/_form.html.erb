@@ -1,0 +1,15 @@
+<%= simple_form_for [@flat, @review] do |f| %>
+  <div class="col-xs-12">
+    <%= f.input :comment, placeholder: 'Raconte ton expérience' %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.input :rating, collection: 0..5 %>
+  </div>
+
+
+  <div class="col-xs-12">
+    <br>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>
