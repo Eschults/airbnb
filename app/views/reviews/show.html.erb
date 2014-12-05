@@ -1,15 +1,21 @@
-<h2> Votre Review sur l'appartement <%= @flat.title %> </h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 white-bg bord-rad-2 margin-top-20 padding-btm-15">
+      <h2>Votre Review sur l'appartement <%= @flat.title %></h2>
 
 
-    <% @review.rating.times do %>
-    <i class="fa fa-star"></i>
-    <% end %>
-    <% (5-@review.rating).times do %>
-        <i class="fa fa-star-o"></i>
-    <% end %>
-    <p><%= @review.comment%></p>
+      <p><strong>Rating:</strong> <% @review.rating.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+            <% (5-@review.rating).times do %>
+              <i class="fa fa-star-o"></i>
+            <% end %></p>
 
-  <%= link_to "Faire un commentaire", new_flat_review_path , class:"btn btn-success" %>
+      <p><strong>Comment:</strong><%= @review.comment%></p>
 
-  <%= link_to "Retour aux appartements", flat_path %>
-
+      <%= link_to "Retour aux appartements", flats_path %>
+    </div>
+  </div>
+</div>
+<br>
+<br>

@@ -14,7 +14,7 @@ class Flat < ActiveRecord::Base
     output = true
     if self.bookings
       self.bookings.each do |booking|
-        if (booking.start_date..booking.end_date).include? first_day || (booking.start_date..booking.end_date).include? last_day
+        if ((booking.start_date..booking.end_date).include? first_day) || ((booking.start_date..booking.end_date).include? last_day)
           output = false
           break
         end
